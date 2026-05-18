@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "district": "Saharsa",
+    "state": "Bihar",
+    "country": "India",
+    "snapshot_window": "2026-04-28 to 2026-05-04",
+    "sources": [
+      "NASA POWER (heat) — committed snapshot",
+      "Malaria Atlas Project (admin-2 prevalence) — committed snapshot",
+      "OpenDengue (district weekly counts) — committed snapshot"
+    ],
+    "license": "Original sources are public-domain or CC-BY; snapshot redistributed per source license. CC-BY-4.0.",
+    "schema_version": "1.0",
+    "purpose": "Static snapshot for MAITRI-Gemma hackathon demo. The Retrieval Agent treats this as the climate-health context for any case in Saharsa district."
+  },
+  "heat": {
+    "current_max_temp_c": 41.2,
+    "feels_like_max_c": 47.8,
+    "heat_index_category": "extreme_caution",
+    "advisory_active": true,
+    "advisory_summary_en": "Extreme heat conditions; pregnant women in T2/T3 should avoid afternoon outdoor exposure; symptoms of dehydration and pre-eclampsia (headache, swelling, vision changes) require urgent triage."
+  },
+  "vector_borne": {
+    "dengue": {
+      "weekly_cases_district": 12,
+      "trend_4w": "rising",
+      "risk_level": "amber",
+      "advisory_en": "Sporadic dengue activity. Pregnant women presenting with fever ≥ 38°C plus rash, body-ache, or eye pain should be referred for testing within 24h."
+    },
+    "malaria": {
+      "estimated_pf_prevalence_under5": 0.018,
+      "risk_level": "low",
+      "advisory_en": "Low Plasmodium falciparum prevalence; routine ITN counselling sufficient for ANC visits."
+    }
+  },
+  "infectious": {
+    "japanese_encephalitis": {
+      "season_active": false,
+      "advisory_en": "Pre-season; routine vector control."
+    }
+  },
+  "air_quality": {
+    "pm25_24h_mean_ug_m3": 84,
+    "category": "unhealthy_for_sensitive",
+    "advisory_en": "PM2.5 elevated; advise indoor cooking ventilation and avoiding biomass smoke for pregnant women."
+  }
+}

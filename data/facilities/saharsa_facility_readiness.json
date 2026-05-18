@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "district": "Saharsa",
+    "state": "Bihar",
+    "country": "India",
+    "snapshot_date": "2026-05-04",
+    "source": "Hand-curated mock for MAITRI-Gemma hackathon. Post-hackathon: Healthsites.io + India MOH facility readiness feed.",
+    "license": "CC0",
+    "schema_version": "1.0"
+  },
+  "facilities": [
+    {
+      "facility_id": "SHR-DH-001",
+      "facility_name": "Saharsa District Hospital",
+      "facility_type": "district_hospital",
+      "gps": {"lat": 25.8780, "lon": 86.5948},
+      "open_now": true,
+      "open_hours": "24/7",
+      "capabilities": {
+        "maternal_emergency": true,
+        "blood_pressure_check": true,
+        "ultrasound": true,
+        "obstetric_surgery": true,
+        "neonatal_icu": true,
+        "blood_bank": true,
+        "ambulance_dispatch": true
+      },
+      "contact": {
+        "ambulance_phone": "+91-6478-222100",
+        "labour_room_phone": "+91-6478-222101"
+      },
+      "distance_km_from_demo_origin": 14,
+      "cost_level": "public_free_or_low_cost",
+      "voucher_eligibility": ["JSY", "PMMVY"],
+      "notes": "Primary referral target for Amber/Red maternal cases in Saharsa district demo."
+    },
+    {
+      "facility_id": "SHR-PHC-014",
+      "facility_name": "Sahuriya PHC",
+      "facility_type": "primary_health_centre",
+      "gps": {"lat": 25.9412, "lon": 86.6231},
+      "open_now": true,
+      "open_hours": "08:00-16:00",
+      "capabilities": {
+        "maternal_emergency": false,
+        "blood_pressure_check": true,
+        "ultrasound": false,
+        "obstetric_surgery": false,
+        "neonatal_icu": false,
+        "blood_bank": false,
+        "ambulance_dispatch": false
+      },
+      "contact": {
+        "ambulance_phone": null,
+        "labour_room_phone": "+91-6478-244015"
+      },
+      "distance_km_from_demo_origin": 6,
+      "cost_level": "public_free_or_low_cost",
+      "voucher_eligibility": ["JSY"],
+      "notes": "CLOSER but NOT maternal-emergency-capable. Good for Green tier ANC checkups; should NOT be referral target for Amber/Red. The Referral Agent must skip this for any tier ≥ Amber."
+    },
+    {
+      "facility_id": "SHR-CHC-007",
+      "facility_name": "Simri Bakhtiarpur CHC",
+      "facility_type": "community_health_centre",
+      "gps": {"lat": 25.6517, "lon": 86.5021},
+      "open_now": true,
+      "open_hours": "24/7 (paper records, electronic records during day shift)",
+      "capabilities": {
+        "maternal_emergency": true,
+        "blood_pressure_check": true,
+        "ultrasound": true,
+        "obstetric_surgery": false,
+        "neonatal_icu": false,
+        "blood_bank": false,
+        "ambulance_dispatch": true
+      },
+      "contact": {
+        "ambulance_phone": "+91-6478-256730",
+        "labour_room_phone": "+91-6478-256731"
+      },
+      "distance_km_from_demo_origin": 28,
+      "cost_level": "public_free_or_low_cost",
+      "voucher_eligibility": ["JSY"],
+      "notes": "Backup target for Amber if District Hospital is congested. NOT suitable for Red cases requiring obstetric surgery — refer to District Hospital instead."
+    },
+    {
+      "facility_id": "SHR-PRV-022",
+      "facility_name": "Lifeline Maternity Hospital (private)",
+      "facility_type": "private_hospital",
+      "gps": {"lat": 25.8862, "lon": 86.5841},
+      "open_now": true,
+      "open_hours": "24/7",
+      "capabilities": {
+        "maternal_emergency": true,
+        "blood_pressure_check": true,
+        "ultrasound": true,
+        "obstetric_surgery": true,
+        "neonatal_icu": true,
+        "blood_bank": true,
+        "ambulance_dispatch": true
+      },
+      "contact": {
+        "ambulance_phone": "+91-6478-271012",
+        "labour_room_phone": "+91-6478-271013"
+      },
+      "distance_km_from_demo_origin": 13,
+      "cost_level": "private_high_cost",
+      "voucher_eligibility": [],
+      "notes": "Capable but expensive. Surface to CHW only with explicit cost warning. Default routing prefers public when comparable."
+    },
+    {
+      "facility_id": "SHR-SC-031",
+      "facility_name": "Banma Itahari Sub-Centre",
+      "facility_type": "sub_centre",
+      "gps": {"lat": 25.7203, "lon": 86.7115},
+      "open_now": false,
+      "open_hours": "10:00-13:00 Mon-Fri",
+      "capabilities": {
+        "maternal_emergency": false,
+        "blood_pressure_check": true,
+        "ultrasound": false,
+        "obstetric_surgery": false,
+        "neonatal_icu": false,
+        "blood_bank": false,
+        "ambulance_dispatch": false
+      },
+      "contact": {
+        "ambulance_phone": null,
+        "labour_room_phone": null
+      },
+      "distance_km_from_demo_origin": 9,
+      "cost_level": "public_free_or_low_cost",
+      "voucher_eligibility": [],
+      "notes": "TEST CASE: closed at the demo time-of-day. Referral Agent must NOT select this even though it is close. Used in eval Case 2 to prove facility-aware routing."
+    },
+    {
+      "facility_id": "SHR-MCH-018",
+      "facility_name": "Saharsa Mother & Child Hospital (govt)",
+      "facility_type": "specialty_hospital",
+      "gps": {"lat": 25.8755, "lon": 86.5935},
+      "open_now": true,
+      "open_hours": "24/7",
+      "capabilities": {
+        "maternal_emergency": true,
+        "blood_pressure_check": true,
+        "ultrasound": true,
+        "obstetric_surgery": true,
+        "neonatal_icu": true,
+        "blood_bank": true,
+        "ambulance_dispatch": true
+      },
+      "contact": {
+        "ambulance_phone": "+91-6478-235500",
+        "labour_room_phone": "+91-6478-235501"
+      },
+      "distance_km_from_demo_origin": 15,
+      "cost_level": "public_free_or_low_cost",
+      "voucher_eligibility": ["JSY", "PMMVY", "MAA"],
+      "notes": "Specialized maternal-child facility. Co-equal with District Hospital; the Referral Agent may select either based on current load (load metric mocked for hackathon)."
+    }
+  ],
+  "transport": {
+    "default_ambulance_eta_min": 35,
+    "average_road_speed_kmh": 28,
+    "monsoon_road_closures_active": false,
+    "notes": "Travel time estimates assume daylight, dry roads. Monsoon snapshots flip multiplier to 1.6×."
+  },
+  "vouchers": {
+    "JSY": {
+      "name_full": "Janani Suraksha Yojana",
+      "covers": "Cash incentive for institutional delivery + transport stipend",
+      "amount_inr_rural": 1400,
+      "eligibility_summary": "Pregnant women belonging to BPL households or SC/ST in rural Bihar; age ≥ 19; up to 2 live births"
+    },
+    "PMMVY": {
+      "name_full": "Pradhan Mantri Matru Vandana Yojana",
+      "covers": "Cash benefit for first live birth (5,000 INR in 3 instalments)",
+      "eligibility_summary": "First-time mothers, age ≥ 19"
+    },
+    "MAA": {
+      "name_full": "Mothers' Absolute Affection programme",
+      "covers": "Breastfeeding support and postnatal counselling at govt facilities",
+      "eligibility_summary": "All mothers delivering at MAA-participating govt facilities"
+    }
+  }
+}
