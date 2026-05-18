@@ -7,11 +7,17 @@ optimizer hint, then the revised assessment that passed verification.
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 from typing import Any
 
-import gradio as gr
+_SRC = Path(__file__).resolve().parent / "src"
+if _SRC.exists() and str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
 
-from maitri.orchestrator import Orchestrator
+import gradio as gr  # noqa: E402
+
+from maitri.orchestrator import Orchestrator  # noqa: E402
 
 
 DEFAULT_NOTE = (
