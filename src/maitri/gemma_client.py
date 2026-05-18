@@ -44,11 +44,16 @@ class GemmaClient:
         if self._settings.provider == "hf":
             headers["Authorization"] = f"Bearer {self._settings.hf_token}"
             self._endpoint = self._settings.router_url
+            verify_ssl: bool = True
         else:
             self._endpoint = self._settings.ollama_base_url
+            # Localhost ollama uses plain http; skip SSL context entirely so a broken
+            # certifi bundle in the env does not break the offline path.
+            verify_ssl = False
         self._http = httpx.Client(
             timeout=httpx.Timeout(60.0, read=300.0),
             headers=headers,
+            verify=verify_ssl,
         )
 
     def close(self) -> None:
