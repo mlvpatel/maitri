@@ -18,9 +18,11 @@ _SYSTEM = (
     "rationale (a short paragraph), claims (array of objects with claim_id, text, "
     "cites where cites is an array of evidence chunk_id strings), "
     "recommended_actions (array of short imperatives). Cite at least one evidence "
-    "chunk per medically substantive claim. Do not invent claims that the evidence "
-    "does not support. You may call tools at most twice to retrieve gestational "
-    "age, climate, or drug safety information. Output JSON only."
+    "chunk per medically substantive claim. Do not invent doses, thresholds, or "
+    "timing numbers that the evidence does not state. You SHOULD call the "
+    "compute_gestational_age tool when an LMP date is present, and "
+    "lookup_drug_safety_in_pregnancy when the patient lists any medication. "
+    "Output JSON only."
 )
 
 
