@@ -31,6 +31,17 @@ make dev
 
 The smoke target makes one live call to the reasoning model and confirms credentials and routing. The dev target opens the Gradio interface on a local URL.
 
+## Run offline against Ollama
+
+This path runs the same seven agent pipeline against a locally hosted Gemma 4 weight via Ollama. No network, no token, no cost. Designed for the low connectivity story.
+
+```
+make ollama-pull
+make demo-offline
+```
+
+The orchestrator switches inference providers based on the MAITRI_PROVIDER environment variable. With the variable set to ollama the client talks to http://localhost:11434/v1/chat/completions and the model identifiers come from the OLLAMA_REASONING_MODEL and OLLAMA_LIGHT_MODEL variables.
+
 ## Project documents
 
 Design rationale lives in OVERVIEW, ARCHITECTURE, FLOWCHART, EVALUATION, DEMO_SCRIPT, REPO_STRUCTURE, TECH_STACK, KAGGLE_STRATEGY, and JUDGE_CRITIQUE. The build stage stays in src.

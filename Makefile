@@ -22,6 +22,13 @@ eval:
 demo:
 	. .venv/bin/activate && python -m examples.case_2_verifier_rejects_hallucination
 
+demo-offline:
+	. .venv/bin/activate && MAITRI_PROVIDER=ollama python -m examples.case_2_offline_ollama
+
+ollama-pull:
+	ollama pull gemma3:27b || true
+	ollama pull gemma3:4b || true
+
 deploy:
 	@echo "Run scripts/deploy_space.sh after confirming HF_TOKEN is set"
 

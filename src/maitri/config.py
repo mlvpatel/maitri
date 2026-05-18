@@ -16,22 +16,28 @@ load_dotenv(_REPO_ROOT / ".env", override=False)
 @dataclass(frozen=True)
 class Settings:
     hf_token: str
+    provider: str
     reasoning_model: str
     light_model: str
     reasoning_fallback: str
     light_fallback: str
     router_url: str
+    ollama_base_url: str
+    ollama_reasoning_model: str
+    ollama_light_model: str
     audit_sqlite: Path
     audit_jsonl: Path
     repo_root: Path
 
     @classmethod
     def from_env(cls) -> "Settings":
+        provider = os.getenv("MAITRI_PROVIDER", "hf").strip().lower()
         token = os.getenv("HF_TOKEN", "").strip()
-        if not token:
+        if provider == "hf" and not token:
             raise RuntimeError("HF_TOKEN is not set in the environment")
         return cls(
             hf_token=token,
+            provider=provider,
             reasoning_model=os.getenv("GEMMA_REASONING_MODEL_ID", "google/gemma-4-31B-it"),
             light_model=os.getenv("GEMMA_LIGHT_MODEL_ID", "google/gemma-4-26B-A4B-it"),
             reasoning_fallback=os.getenv(
@@ -41,6 +47,11 @@ class Settings:
             router_url=os.getenv(
                 "HF_ROUTER_URL", "https://router.huggingface.co/v1/chat/completions"
             ),
+            ollama_base_url=os.getenv(
+                "OLLAMA_BASE_URL", "http://localhost:11434/v1/chat/completions"
+            ),
+            ollama_reasoning_model=os.getenv("OLLAMA_REASONING_MODEL", "gemma3:27b"),
+            ollama_light_model=os.getenv("OLLAMA_LIGHT_MODEL", "gemma3:4b"),
             audit_sqlite=_REPO_ROOT / os.getenv("SQLITE_AUDIT_PATH", "audit.sqlite"),
             audit_jsonl=_REPO_ROOT / os.getenv("JSONL_AUDIT_PATH", "audit.jsonl"),
             repo_root=_REPO_ROOT,

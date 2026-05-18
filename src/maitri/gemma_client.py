@@ -40,12 +40,15 @@ class GemmaClient:
     def __init__(self, audit_sink: Callable[[dict[str, Any]], None] | None = None) -> None:
         self._settings = get_settings()
         self._audit_sink = audit_sink
+        headers: dict[str, str] = {"Content-Type": "application/json"}
+        if self._settings.provider == "hf":
+            headers["Authorization"] = f"Bearer {self._settings.hf_token}"
+            self._endpoint = self._settings.router_url
+        else:
+            self._endpoint = self._settings.ollama_base_url
         self._http = httpx.Client(
-            timeout=httpx.Timeout(60.0, read=120.0),
-            headers={
-                "Authorization": f"Bearer {self._settings.hf_token}",
-                "Content-Type": "application/json",
-            },
+            timeout=httpx.Timeout(60.0, read=300.0),
+            headers=headers,
         )
 
     def close(self) -> None:
@@ -68,6 +71,26 @@ class GemmaClient:
         tools: list[dict[str, Any]] | None = None,
         response_format: dict[str, Any] | None = None,
     ) -> GemmaResponse:
+        if self._settings.provider == "ollama":
+            # Override hosted model ids with the locally available ollama ones.
+            if model is None or model == self._settings.reasoning_model:
+                primary = self._settings.ollama_reasoning_model
+                fallback = self._settings.ollama_light_model
+            elif model == self._settings.light_model:
+                primary = self._settings.ollama_light_model
+                fallback = self._settings.ollama_reasoning_model
+            else:
+                primary = model
+                fallback = self._settings.ollama_light_model
+            return self._call(
+                primary,
+                list(messages),
+                agent=agent,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                tools=None,  # ollama chat completion does not standardize tools
+                response_format=response_format,
+            )
         primary = model or self._settings.reasoning_model
         fallback = (
             self._settings.reasoning_fallback
@@ -98,7 +121,7 @@ class GemmaClient:
         reraise=True,
     )
     def _post(self, payload: dict[str, Any]) -> httpx.Response:
-        return self._http.post(self._settings.router_url, json=payload)
+        return self._http.post(self._endpoint, json=payload)
 
     def _call(
         self,
