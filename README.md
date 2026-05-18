@@ -16,9 +16,9 @@
   &nbsp;&middot;&nbsp;
   <a href="https://github.com/mlvpatel/maitri"><b>Source</b></a>
   &nbsp;&middot;&nbsp;
-  <a href="KAGGLE_WRITEUP.md"><b>Writeup</b></a>
+  <a href="ARCHITECTURE.md"><b>Architecture</b></a>
   &nbsp;&middot;&nbsp;
-  <a href="VIDEO_SCRIPT.md"><b>Video Script</b></a>
+  <a href="EVALUATION.md"><b>Evaluation</b></a>
 </p>
 
 <hr>
@@ -183,9 +183,6 @@ Main Track, Safety and Trust Impact Track, Ollama Special Technology Track.
 | `FLOWCHART.md` | Diagrams |
 | `TECH_STACK.md` | Tech choices and trade offs |
 | `EVALUATION.md` | Eval methodology |
-| `KAGGLE_WRITEUP.md` | The submission writeup, kept under fifteen hundred words |
-| `VIDEO_SCRIPT.md` | Three minute screen capture script |
-| `YOUTUBE_ASSETS.md` | Title, description, tags, upload checklist |
 
 ## License
 

@@ -25,3 +25,8 @@ audit.jsonl
 .cache/
 .ollama/
 .playwright-mcp/
+
+# Submission process drafts kept local only, not on the public repo
+KAGGLE_WRITEUP.md
+VIDEO_SCRIPT.md
+YOUTUBE_ASSETS.md

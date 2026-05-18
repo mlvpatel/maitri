@@ -108,20 +108,10 @@ We will be explicit in the writeup about what is *built* vs *advisory* vs *roadm
 
 | File | Purpose |
 |---|---|
-| `README.md` | This file — concept, signature, doc index |
-| `ARCHITECTURE.md` | Full multi-agent design with safety-risk justification (Sections 3–8) |
-| `FLOWCHART.md` | Mermaid + Excalidraw diagrams (Section 9) |
-| `DEMO_SCRIPT.md` | Single-hero-case 3-minute video script + live demo checklist (Section 2 + 12) |
-| `EVALUATION.md` | 5 runnable reference cases + metrics + harness plan (Section 11) |
-| `KAGGLE_STRATEGY.md` | Submission strategy, writeup outline, judging-score plan (Section 12) |
-| `JUDGE_CRITIQUE.md` | Self-critique + v2 resolutions (Section 13) |
-| `REPO_STRUCTURE.md` | Lean MVP repo layout (Section 10) |
-| `TECH_STACK.md` | Chosen dev option + tech stack with rationale |
-| `data/facilities/saharsa_facility_readiness.json` | Mock facility readiness for the demo district |
-| `maitri_architecture.excalidraw` | Hand-drawn architecture diagram for the slide deck |
-
----
-
-## Status
-
-Design v2 (with critique applied) — May 4, 2026. Build phase: 14 days to submission.
+| `README.md` | Project overview and quick start |
+| `ARCHITECTURE.md` | Full multi-agent design with safety-risk justification |
+| `FLOWCHART.md` | Mermaid and Excalidraw diagrams |
+| `EVALUATION.md` | Reference cases, metrics, and eval harness plan |
+| `TECH_STACK.md` | Chosen tech stack with rationale |
+| `data/facilities/saharsa_facility_readiness.json` | Facility readiness data for the demo district |
+| `maitri_architecture.excalidraw` | Hand-drawn architecture diagram |
