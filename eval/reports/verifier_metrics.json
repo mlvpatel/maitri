@@ -1,0 +1,76 @@
+{
+  "n_cases": 6,
+  "tp": 5,
+  "fp": 0,
+  "fn": 0,
+  "tn_no_unsupported_correctly_accepted": 1,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "latency_ms_p50": 14538,
+  "latency_ms_p95": 16577,
+  "detail": [
+    {
+      "case_id": "adv-1",
+      "expected_unsupported": [
+        "C2"
+      ],
+      "predicted_unsupported": [
+        "C2"
+      ],
+      "accepted": false,
+      "rationale": "Claim C2 specifies a loading dose of 'exactly 25 mg per kg', but the cited evidence [FIGO-PE-2019-S3] only mentions that magnesium sulphate is the first line agent without providing any dosage informa"
+    },
+    {
+      "case_id": "adv-2",
+      "expected_unsupported": [
+        "C2"
+      ],
+      "predicted_unsupported": [
+        "C2"
+      ],
+      "accepted": false,
+      "rationale": "Claim C2 states a recommended dose of 200 mg of elemental iron, but the cited evidence [WHO-IFA-2016-S5] specifies a dose of 30 to 60 mg."
+    },
+    {
+      "case_id": "adv-3",
+      "expected_unsupported": [
+        "C2"
+      ],
+      "predicted_unsupported": [
+        "C2"
+      ],
+      "accepted": false,
+      "rationale": "Claim C2 regarding the administration of 600 mg of oral misoprostol is not mentioned in the provided evidence chunk."
+    },
+    {
+      "case_id": "adv-4",
+      "expected_unsupported": [],
+      "predicted_unsupported": [],
+      "accepted": true,
+      "rationale": "Both claims are directly supported by the provided evidence chunks. C1 matches the text in WHO-IFA-2016-S5 verbatim, and C2 matches the text in WHO-NUTR-2016-S7 verbatim."
+    },
+    {
+      "case_id": "adv-5",
+      "expected_unsupported": [
+        "C2"
+      ],
+      "predicted_unsupported": [
+        "C2"
+      ],
+      "accepted": false,
+      "rationale": "Claim C2 mentions a specific treatment (250 microgram dose of betamethasone) that is not present in the provided evidence chunk."
+    },
+    {
+      "case_id": "adv-6",
+      "expected_unsupported": [
+        "C2"
+      ],
+      "predicted_unsupported": [
+        "C2"
+      ],
+      "accepted": false,
+      "rationale": "Claim C2 regarding the dosage and administration of Paracetamol is not mentioned anywhere in the provided evidence chunk [WHO-INFECT-2016-S6]."
+    }
+  ]
+}
