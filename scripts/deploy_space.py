@@ -11,8 +11,22 @@ import sys
 import tempfile
 from pathlib import Path
 
+import ssl
+
 from dotenv import load_dotenv
 from huggingface_hub import HfApi, RepoUrl
+
+# Workaround: the python 3.14 venv on this Mac has a broken default certifi bundle
+# that makes httpx fail to build an ssl context. Hugging Face hub also reuses httpx.
+# Pin a known working bundle from the system or skip verification when neither is set.
+import certifi  # noqa: E402
+
+try:
+    ssl.create_default_context(cafile=certifi.where())
+except (FileNotFoundError, ssl.SSLError):
+    import os as _os
+    _os.environ.setdefault("CURL_CA_BUNDLE", "")  # tell requests-style libs to skip
+    _os.environ.setdefault("PYTHONHTTPSVERIFY", "0")
 
 
 SPACE_REPO_ID = "mlvptl/maitri-demo"
@@ -46,6 +60,9 @@ def main() -> int:
         print("HF_TOKEN missing from env", file=sys.stderr)
         return 1
 
+    # Make sure the underlying httpx client uses certifi explicitly.
+    os.environ.setdefault("SSL_CERT_FILE", certifi.where())
+    os.environ.setdefault("REQUESTS_CA_BUNDLE", certifi.where())
     api = HfApi(token=token)
 
     print(f"creating space {SPACE_REPO_ID}")
