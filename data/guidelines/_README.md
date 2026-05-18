@@ -1,21 +1,18 @@
-# Guideline Corpus (placeholder)
+# Guideline corpus
 
-For the hackathon MVP we ingest ~200 chunks (~800 tokens each) from:
+The retrieval index is intentionally small and hardcoded so every verifier check is reproducible without a network call.
 
-- WHO Antenatal Care Recommendations (2016 + 2025 update) — public, CC-BY
-- WHO Recommendations for Prevention and Treatment of Pre-eclampsia and Eclampsia — public
-- FIGO 2024 Hypertensive Disorders in Pregnancy — public guideline excerpts
-- India ICMR + RMNCH+A maternal-health protocols — public, GoI
+Chunks are defined as Python constants in `src/maitri/rag/corpus.py`, currently ten in total. Each chunk has a stable identifier, a source label, a title, a year, a section, and the verbatim text. The verifier cites these identifiers when accepting or rejecting a claim.
 
-**No PDFs are committed to the repo** — the loader script ingests from versioned source URLs (in `src/rag/ingest.py`) and writes the LanceDB index to a local file. This keeps the repo light and license-clean.
+Sources cited in the chunks:
 
-The chunk corpus *metadata* (titles, source URLs, retrieval keys, last-reviewed-by-clinician timestamp per chunk) lives in `corpus_metadata.csv` (created at first run).
+- World Health Organization recommendations on antenatal care for a positive pregnancy experience, 2016
+- World Health Organization recommendations on antepartum hemorrhage, 2018
+- World Health Organization hemoglobin concentrations for the diagnosis of anaemia, 2011
+- World Health Organization recommendations for routine antenatal care, 2018
+- FIGO initiative on pre eclampsia, 2019
+- Indian Ministry of Health Reproductive Maternal Newborn Child and Adolescent Health programme, 2013
 
-Each chunk is tagged with:
-- `source_id`, `source_url`, `version`, `published_date`
-- `country_scope` (`global` or ISO-3166)
-- `language` (`en` for hackathon)
-- `topic` (e.g. `hypertensive_disorders`, `gestational_diabetes`, `anemia`, `infection_screening`)
-- `chunk_id`, `chunk_text`, `embedding`
+No PDFs are committed. The chunks contain only the small excerpts the demo cites. A judge can read every chunk by opening the corpus file.
 
-The Retrieval Agent enforces filter `country_scope ∈ {global, IND}` for the demo.
+For a future scale up the loader would pull versioned source URLs into a LanceDB index, but that is not in the current MVP scope.
