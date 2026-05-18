@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:11,220
+In 2023, roughly two hundred and sixty thousand women died from causes related to pregnancy. One woman every two minutes.
+
+2
+00:00:11,220 --> 00:00:26,320
+In places like Saharsa district in Bihar, the nearest maternal care facility is often fifteen kilometres away. The frontline is a community health worker with a paper card and a low end phone.
+
+3
+00:00:26,320 --> 00:00:39,020
+Maitri is a seven agent maternal triage system built on Gemma 4. An independent verifier rejects unsupported claims before they ever reach the field.
+
+4
+00:00:39,020 --> 00:00:57,410
+The Specialist agent drafts a risk assessment with cited claims. Tier red, severe pre eclampsia. One claim states an exact intravenous magnesium sulphate dose. The evidence does not support that number.
+
+5
+00:00:57,410 --> 00:01:08,910
+The independent Verifier catches the unsupported claim. The system stops. The Optimizer writes a short rewrite directive.
+
+6
+00:01:08,910 --> 00:01:20,680
+The Specialist runs again with the optimizer's hint. The second draft passes the Verifier. Only verified claims move forward.
+
+7
+00:01:20,680 --> 00:01:38,900
+The Referral and Facility agent picks Saharsa District Hospital. It is open, has obstetric surgery, and dispatches ambulances. The closer primary health centre is skipped because it does not have the capability this case needs.
+
+8
+00:01:38,900 --> 00:01:54,870
+The Formatter produces a clinical card for the community health worker in English, a warm message for the mother in Hindi, and a separate message for the household decision maker, naming the cash transfer scheme she is eligible for.
+
+9
+00:01:54,870 --> 00:02:04,670
+Every model call is logged to an append only audit trail with per agent latency and the exact evidence chunks the model saw.
+
+10
+00:02:04,670 --> 00:02:23,930
+On a hand crafted adversarial set the verifier achieves precision one and recall one. The deterministic safety rule block passes its full unit suite. The code is Apache two licensed, the live demo is public, the repository is public.
+
+11
+00:02:23,930 --> 00:02:32,820
+Maitri. A safety verified Gemma 4 maternal referral co pilot for the woman who cannot wait.
