@@ -57,7 +57,10 @@ def run_intake(
         response_format={"type": "json_object"},
     )
     obj = extract_json(resp.content)
+    # Drop null values so Pydantic defaults take effect for required-with-default fields
+    obj = {k: v for k, v in obj.items() if v is not None}
     obj["case_id"] = case_id
     for k, v in structured.items():
-        obj.setdefault(k, v)
+        if v is not None:
+            obj.setdefault(k, v)
     return PatientSnapshot.model_validate(obj)

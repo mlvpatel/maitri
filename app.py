@@ -184,7 +184,7 @@ def _run(
 
 
 def build_app() -> gr.Blocks:
-    with gr.Blocks(title="Maitri maternal referral co pilot") as demo:
+    with gr.Blocks(title="Maitri maternal referral co pilot", theme=gr.themes.Soft()) as demo:
         gr.HTML(
             "<div style='padding:14px 18px;border-radius:14px;"
             "background:linear-gradient(90deg,#0f4a3a,#1b7a3e);color:white'>"
@@ -256,4 +256,4 @@ def build_app() -> gr.Blocks:
 
 
 if __name__ == "__main__":
-    build_app().launch(server_name="0.0.0.0", server_port=7860, share=False, theme=gr.themes.Soft())
+    build_app().launch(server_name="0.0.0.0", server_port=7860, share=False)

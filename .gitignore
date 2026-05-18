@@ -24,3 +24,4 @@ audit.jsonl
 .lancedb/
 .cache/
 .ollama/
+.playwright-mcp/
